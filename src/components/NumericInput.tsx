@@ -1,0 +1,8 @@
+import {useEffect,useRef,useState} from 'react';
+import {parseNumericDraft} from '../engine/input';
+export default function NumericInput({value,onCommit,min=0,max=300,label,step=.1}:{value:number;onCommit:(n:number)=>void;min?:number;max?:number;label:string;step?:number}){
+ const [draft,setDraft]=useState(String(+value.toFixed(4))),[focused,setFocused]=useState(false),[error,setError]=useState('');const cancel=useRef(false),previousValue=useRef(value);
+ useEffect(()=>{const changed=previousValue.current!==value;previousValue.current=value;if(!focused&&(changed||!error)){setDraft(String(+value.toFixed(4)));if(changed)setError('')}},[value,focused,error]);
+ const commit=()=>{setFocused(false);if(cancel.current){cancel.current=false;return}const parsed=parseNumericDraft(draft,min,max);if(parsed.error){setError(parsed.error);return}setError('');onCommit(parsed.value!)};
+ return <span className="numeric-control"><input type="text" inputMode="decimal" aria-label={label} aria-invalid={!!error} title={error||`${+min.toFixed(4)}–${+max.toFixed(4)}`} value={draft} onFocus={()=>setFocused(true)} onChange={e=>{setDraft(e.target.value);setError('')}} onBlur={commit} onKeyDown={e=>{if(e.key==='Enter'){e.preventDefault();e.currentTarget.blur()}if(e.key==='Escape'){cancel.current=true;setDraft(String(+value.toFixed(4)));setError('');e.currentTarget.blur()}if(e.key==='ArrowUp'||e.key==='ArrowDown'){e.preventDefault();const current=Number(draft);if(Number.isFinite(current)){const next=Math.max(min,Math.min(max,current+(e.key==='ArrowUp'?step:-step)*(e.shiftKey?10:1)));setDraft(String(+next.toFixed(4)))}}}}/>{error&&<small role="alert">{error}</small>}</span>
+}

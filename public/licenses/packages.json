@@ -1,0 +1,89 @@
+[
+  {
+    "package": "react",
+    "version": "19.3.1",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/react"
+    }
+  },
+  {
+    "package": "react-dom",
+    "version": "19.3.1",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/react/react.git",
+      "directory": "packages/react-dom"
+    }
+  },
+  {
+    "package": "three",
+    "version": "0.187.0",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/mrdoob/three.js"
+    }
+  },
+  {
+    "package": "replicad",
+    "version": "1.2.1",
+    "license": "MIT",
+    "source": null
+  },
+  {
+    "package": "replicad-opencascadejs",
+    "version": "1.2.1",
+    "license": "LGPL-2.1-only",
+    "source": null
+  },
+  {
+    "package": "lucide-react",
+    "version": "1.70.0",
+    "license": "ISC",
+    "source": {
+      "type": "git",
+      "url": "https://github.com/lucide-icons/lucide.git",
+      "directory": "packages/lucide-react"
+    }
+  },
+  {
+    "package": "zustand",
+    "version": "5.0.16",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "git+https://github.com/pmndrs/zustand.git"
+    }
+  },
+  {
+    "package": "zod",
+    "version": "4.6.7",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "git+https://github.com/colinhacks/zod.git"
+    }
+  },
+  {
+    "package": "@react-three/drei",
+    "version": "10.7.9",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "git+https://github.com/pmndrs/drei.git"
+    }
+  },
+  {
+    "package": "@react-three/fiber",
+    "version": "9.8.2",
+    "license": "MIT",
+    "source": {
+      "type": "git",
+      "url": "git+https://github.com/pmndrs/react-three-fiber.git"
+    }
+  }
+]
